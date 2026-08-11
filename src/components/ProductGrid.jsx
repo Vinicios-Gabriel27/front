@@ -53,7 +53,7 @@ const ProductGrid = () => {
         <div className="loading-state">Nenhum anúncio encontrado nesta categoria.</div>
       ) : (
         <div className="grid-produtos">
-          {anuncios.map(item => (
+          {Array.isArray(anuncios) && anuncios.map(item => (
             <div key={item._id} className="card">
               <img 
                 src={item.imagem} 

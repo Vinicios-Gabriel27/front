@@ -54,7 +54,7 @@ const Perfil = ({ usuarioLogado, onEdit }) => {
         <div className="loading-state">Você ainda não publicou nenhum anúncio.</div>
       ) : (
         <div className="grid-produtos">
-          {meusAnuncios.map(item => (
+          {Array.isArray(meusAnuncios) && meusAnuncios.map(item => (
             <div key={item._id} className="card">
               <img 
                 src={item.imagem} 

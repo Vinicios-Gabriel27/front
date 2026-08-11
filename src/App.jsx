@@ -4,7 +4,7 @@ import Hero from './components/Hero';
 import ProductGrid from './components/ProductGrid';
 import AdForm from './components/AdForm';
 import AuthForm from './components/AuthForm';
-import Perfil from './components/Perfil'; // <-- NOVO
+import Perfil from './components/Perfil';
 import './App.css';
 
 function App() {

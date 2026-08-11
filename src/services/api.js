@@ -1,5 +1,5 @@
-const API_ANUNCIOS = "http://localhost:3000/anuncios";
-const API_USUARIOS = "http://localhost:3000/usuarios";
+const API_ANUNCIOS = "https://vinicios.onrender.com";
+const API_USUARIOS = "https://vinicios.onrender.com";
 
 // Função auxiliar para pegar o token salvo no navegador
 const getHeaders = () => {
@@ -10,7 +10,6 @@ const getHeaders = () => {
     };
 };
 
-// ================= ROTAS DE USUÁRIO =================
 export const registrarUsuario = async (dadosUsuario) => {
     const response = await fetch(`${API_USUARIOS}/registrar`, {
         method: "POST",
@@ -31,7 +30,7 @@ export const loginUsuario = async (credenciais) => {
     return response.json();
 };
 
-// ================= ROTAS DE ANÚNCIOS =================
+
 export const fetchAnuncios = async (categoria = "") => {
     const url = categoria ? `${API_ANUNCIOS}?categoria=${categoria}` : API_ANUNCIOS;
     const response = await fetch(url);

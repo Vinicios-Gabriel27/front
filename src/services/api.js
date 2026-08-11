@@ -1,5 +1,5 @@
-const API_ANUNCIOS = "https://vinicios.onrender.com";
-const API_USUARIOS = "https://vinicios.onrender.com";
+const API_ANUNCIOS = "https://vinicios.onrender.com/anuncios";
+const API_USUARIOS = "https://vinicios.onrender.com/usuarios";
 
 // Função auxiliar para pegar o token salvo no navegador
 const getHeaders = () => {

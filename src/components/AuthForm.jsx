@@ -4,7 +4,6 @@ import { loginUsuario, registrarUsuario } from '../services/api';
 const AuthForm = ({ setAbaAtual, setUsuarioLogado }) => {
   const [isLogin, setIsLogin] = useState(true);
   
-  // 1. Adicionamos o 'confirmarSenha' no estado inicial do formulário
   const [form, setForm] = useState({ 
     nome: '', 
     email: '', 
@@ -17,7 +16,6 @@ const AuthForm = ({ setAbaAtual, setUsuarioLogado }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // 2. NOVA TRAVA DE SEGURANÇA: Verifica se as senhas batem no cadastro
     if (!isLogin && form.senha !== form.confirmarSenha) {
       alert("As senhas não coincidem! Por favor, digite a mesma senha nos dois campos.");
       return; // Para a execução do código aqui mesmo
@@ -27,10 +25,8 @@ const AuthForm = ({ setAbaAtual, setUsuarioLogado }) => {
     try {
       let resposta;
       if (isLogin) {
-        // No login, manda só email e senha
         resposta = await loginUsuario({ email: form.email, senha: form.senha });
       } else {
-        // No cadastro, manda nome, email e senha (o backend não precisa do confirmarSenha)
         resposta = await registrarUsuario({ nome: form.nome, email: form.email, senha: form.senha });
       }
       
@@ -80,7 +76,6 @@ const AuthForm = ({ setAbaAtual, setUsuarioLogado }) => {
           />
         </div>
 
-        {/* 3. NOVO CAMPO: Só aparece quando o usuário está na tela de cadastro */}
         {!isLogin && (
           <div className="form-group">
             <label className="form-label">Confirmar Senha</label>

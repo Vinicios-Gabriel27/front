@@ -1,7 +1,6 @@
 const API_ANUNCIOS = "https://vinicios.onrender.com/anuncios";
 const API_USUARIOS = "https://vinicios.onrender.com/usuarios";
 
-// Função auxiliar para pegar o token salvo no navegador
 const getHeaders = () => {
     const token = localStorage.getItem('token');
     return {
@@ -64,5 +63,17 @@ export const deletarAnuncio = async (id) => {
         headers: getHeaders(),
     });
     if (!response.ok) throw new Error("Erro ao excluir anúncio");
+    return response.json();
+};
+
+export const listarAnunciosUsuario = async (usuarioId) => {
+    const response = await fetch(
+        `${API_ANUNCIOS}?usuario=${usuarioId}`
+    );
+
+    if (!response.ok) {
+        throw new Error("Erro ao buscar anúncios do usuário");
+    }
+
     return response.json();
 };

@@ -64,3 +64,6 @@ function ProductDetails({ anuncio, onVoltar }) {
 }
 
 export default ProductDetails;
+
+
+//terminei
